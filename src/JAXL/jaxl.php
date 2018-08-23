@@ -134,6 +134,7 @@ class JAXL extends XMPPStream
             'domain' => null,
             'force_tls' => false,
             'host' => null,
+            'pid' => null,
             'jid' => null,
             'log_colorize' => $this->log_colorize,
             'log_level' => $this->log_level,
@@ -162,7 +163,7 @@ class JAXL extends XMPPStream
         }
         $this->mode = PHP_SAPI;
         $this->local_ip = gethostbyname(php_uname('n'));
-        $this->pid = getmypid();
+        $this->pid = ($this->cfg['pid'] !== null) ? $this->cfg['pid'] : getmypid();
 
         // jid object
         $jid = ($this->cfg['jid'] !== null) ? new XMPPJid($this->cfg['jid']) : null;
