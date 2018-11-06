@@ -65,7 +65,7 @@ class JAXL extends XMPPStream
      * Event callback engine for XMPP stream lifecycle.
      * @var JAXLEvent
      */
-    protected $ev = null;
+    public $ev = null;
     
     // reference to various xep instance objects
     public $xeps = array();
