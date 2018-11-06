@@ -96,7 +96,9 @@ class JAXLXmlStream
 
     public function parse($str)
     {
-        xml_parse($this->parser, $str, false);
+        if (!xml_parse($this->parser, $str, false)) {
+            @xml_parser_free($this->parser);
+        }
     }
 
     public function parse_final($str)
